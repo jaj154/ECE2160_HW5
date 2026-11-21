@@ -1,0 +1,52 @@
+optimized:  Inlined pmu_error/152 into main/33 which now has time 1645.792217 and size 324, net change of -5 (cross module).
+optimized:  Inlined worker_count/102 into main/33 which now has time 1644.845091 and size 322, net change of -5 (cross module).
+optimized:  Inlined sensor_name/187 into main/33 which now has time 1643.897964 and size 320, net change of -5 (cross module).
+optimized:  Inlined stats_reset/305 into clean_and_summarize/279 which now has time 886887.267578 and size 108, net change of -10 (cross module).
+optimized:  Inlined bin_to_dev/304 into clean_and_summarize/279 which now has time 886887.267578 and size 108, net change of -6 (cross module).
+optimized:  Inlined stats_add/306 into clean_and_summarize/279 which now has time 802387.712891 and size 113, net change of -16 (cross module).
+optimized:  Inlined rng_next/325 into dataset_build/0 which now has time 531421.612305 and size 115, net change of +3 (cross module).
+optimized:  Inlined dev_to_bin/303 into clean_and_summarize/279 which now has time 795631.776367 and size 114, net change of -6 (cross module).
+optimized:  Inlined temp_to_bin/301 into clean_and_summarize/279 which now has time 793965.702148 and size 116, net change of -6 (cross module).
+optimized:  Inlined temp_to_bin.part.0/310 into temp_to_bin/301 which now has time 789920.617188 and size 8, net change of -6.
+optimized:  Inlined rng_gauss/300 into predict_room/242 which now has time 2060622.134766 and size 195, net change of -6 (cross module).
+optimized:  Inlined stats_finish.isra/324 into clean_and_summarize/279 which now has time 787908.354492 and size 132, net change of -13 (cross module).
+optimized:  Inlined rng_next/298 into dataset_build/0 which now has time 530654.393555 and size 118, net change of -8 (cross module).
+optimized:  Inlined bin_to_temp/302 into clean_and_summarize/279 which now has time 787916.445312 and size 133, net change of -6 (cross module).
+optimized:  Inlined sensor_read_celsius/185 into io_unit_run/272 which now has time 805.590430 and size 60, net change of -7 (cross module).
+optimized:  Inlined open_event/146 into pmu_open/147 which now has time 207.765567 and size 55, net change of -7.
+optimized:  Inlined sensor_close.part.0/199 into sensor_close/186 which now has time 15.784800 and size 14, net change of -4.
+optimized:  Inlined rng_float/326 into rng_gauss/300 which now has time 1984669.033203 and size 20, net change of +6.
+optimized:  Inlined rng_float/327 into rng_gauss/300 which now has time 1908715.931641 and size 20, net change of +6.
+optimized:  Inlined rng_float/328 into rng_gauss/300 which now has time 1832762.830078 and size 20, net change of +6.
+optimized:  Inlined rng_float/329 into rng_gauss/300 which now has time 1756809.726562 and size 20, net change of +6.
+optimized:  Inlined rng_float/330 into dataset_build/0 which now has time 454699.737305 and size 124, net change of +6 (cross module).
+optimized:  Inlined compute_unit_run/244 into main/33 which now has time 1644.158882 and size 321, net change of -5 (cross module).
+optimized:  Inlined find_cycle/240 into predict_room/242 which now has time 1756947.650391 and size 241, net change of -12.
+optimized:  Inlined rng_float/331 into dataset_build/0 which now has time 429634.700684 and size 130, net change of +6 (cross module).
+optimized:  Inlined autocorrelation.constprop/322 into predict_room/242 which now has time 1757881.576172 and size 262, net change of -7.
+optimized:  Inlined memory_unit_run/280 into main/33 which now has time 1647.550795 and size 325, net change of -5 (cross module).
+optimized:  Inlined sensor_close/186 into main/33 which now has time 1649.571081 and size 335, net change of -4 (cross module).
+optimized:  Inlined levinson/241 into predict_room/242 which now has time 1760498.449219 and size 317, net change of -6.
+optimized:  Inlined print_room_report/32 into main/33 which now has time 1968.784594 and size 375, net change of -7.
+optimized:  Inlined io_unit_run/272 into main/33 which now has time 2387.223347 and size 422, net change of -13 (cross module).
+optimized:  Inlined rng_float/332 into dataset_build/0 which now has time 428867.481934 and size 136, net change of +6 (cross module).
+optimized:  Inlined rng_float/333 into dataset_build/0 which now has time 428100.263184 and size 142, net change of +6 (cross module).
+optimized:  Inlined pmu_open/147 into main/33 which now has time 2439.205254 and size 472, net change of -5 (cross module).
+optimized:  Inlined rng_float/334 into dataset_build/0 which now has time 427593.898926 and size 148, net change of +6 (cross module).
+optimized:  Inlined xalloc.part.0/61 into xalloc/30 which now has time 32.003600 and size 22, net change of -4.
+optimized:  Inlined rng_float/299 into dataset_build/0 which now has time 427333.044922 and size 154, net change of -8 (cross module).
+optimized:  Inlined hts_read/335 into sensor_read_celsius/185 which now has time 2597.900982 and size 22, net change of +14.
+optimized: converting indirect call in run_over_rooms/336 to direct call to reorganize/277
+optimized: converting indirect call in run_over_rooms/337 to direct call to clean_and_summarize/279
+optimized: converting indirect call in run_over_rooms/103 to direct call to predict_rooms/243
+src/sensor_sensehat.c:50:20: optimized: basic block part vectorized using 4 byte vectors
+src/sensor_sensehat.c:50:20: optimized: basic block part vectorized using 4 byte vectors
+src/sensor_sensehat.c:61:20: optimized: basic block part vectorized using 4 byte vectors
+src/pmu.c:76:17: optimized: basic block part vectorized using 8 byte vectors
+src/unit_compute.c:143:42: optimized: Loop 8 distributed: split to 0 loops and 1 library calls.
+src/unit_compute.c:73:27: optimized: Loop 12 distributed: split to 0 loops and 1 library calls.
+src/unit_compute.c:63:23: optimized: Loop 15 distributed: split to 0 loops and 1 library calls.
+src/unit_compute.c:115:30: optimized: loop vectorized using 16 byte vectors
+src/unit_compute.c:101:23: optimized: loop vectorized using 16 byte vectors
+src/sensor_sensehat.c:50:20: optimized: basic block part vectorized using 4 byte vectors
+src/sensor_sensehat.c:50:20: optimized: basic block part vectorized using 4 byte vectors

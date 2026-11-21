@@ -1,0 +1,136 @@
+make[1]: Nothing to be done for 'variant'.
+== o2_pgo: PGO step 1/3 - instrumented build
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/main.c -o build/o2_pgo/main.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/unit_io.c -o build/o2_pgo/unit_io.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/unit_memory.c -o build/o2_pgo/unit_memory.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/unit_compute.c -o build/o2_pgo/unit_compute.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/dataset.c -o build/o2_pgo/dataset.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/util.c -o build/o2_pgo/util.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/parallel.c -o build/o2_pgo/parallel.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/pmu.c -o build/o2_pgo/pmu.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/sensor_sensehat.c -o build/o2_pgo/sensor_sensehat.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo/main.o build/o2_pgo/unit_io.o build/o2_pgo/unit_memory.o build/o2_pgo/unit_compute.o build/o2_pgo/dataset.o build/o2_pgo/util.o build/o2_pgo/parallel.o build/o2_pgo/pmu.o build/o2_pgo/sensor_sensehat.o -o build/critter_o2_pgo -lm
+== o2_pgo: PGO step 2/3 - training run (dataset seed 0)
+TRAINTIME,o2_pgo,2.214
+== o2_pgo: PGO step 3/3 - optimized rebuild using the profile
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/main.c -o build/o2_pgo/main.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/unit_io.c -o build/o2_pgo/unit_io.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/unit_memory.c -o build/o2_pgo/unit_memory.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/unit_compute.c -o build/o2_pgo/unit_compute.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/dataset.c -o build/o2_pgo/dataset.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/util.c -o build/o2_pgo/util.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/parallel.c -o build/o2_pgo/parallel.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/pmu.c -o build/o2_pgo/pmu.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo"' -c src/sensor_sensehat.c -o build/o2_pgo/sensor_sensehat.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo/main.o build/o2_pgo/unit_io.o build/o2_pgo/unit_memory.o build/o2_pgo/unit_compute.o build/o2_pgo/dataset.o build/o2_pgo/util.o build/o2_pgo/parallel.o build/o2_pgo/pmu.o build/o2_pgo/sensor_sensehat.o -o build/critter_o2_pgo -lm
+== o2_pgo_xseed: PGO step 1/3 - instrumented build
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/main.c -o build/o2_pgo_xseed/main.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/unit_io.c -o build/o2_pgo_xseed/unit_io.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/unit_memory.c -o build/o2_pgo_xseed/unit_memory.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/unit_compute.c -o build/o2_pgo_xseed/unit_compute.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/dataset.c -o build/o2_pgo_xseed/dataset.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/util.c -o build/o2_pgo_xseed/util.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/parallel.c -o build/o2_pgo_xseed/parallel.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/pmu.c -o build/o2_pgo_xseed/pmu.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/sensor_sensehat.c -o build/o2_pgo_xseed/sensor_sensehat.o
+gcc -O2 -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo_xseed/main.o build/o2_pgo_xseed/unit_io.o build/o2_pgo_xseed/unit_memory.o build/o2_pgo_xseed/unit_compute.o build/o2_pgo_xseed/dataset.o build/o2_pgo_xseed/util.o build/o2_pgo_xseed/parallel.o build/o2_pgo_xseed/pmu.o build/o2_pgo_xseed/sensor_sensehat.o -o build/critter_o2_pgo_xseed -lm
+== o2_pgo_xseed: PGO step 2/3 - training run (dataset seed 7)
+TRAINTIME,o2_pgo_xseed,2.203
+== o2_pgo_xseed: PGO step 3/3 - optimized rebuild using the profile
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/main.c -o build/o2_pgo_xseed/main.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/unit_io.c -o build/o2_pgo_xseed/unit_io.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/unit_memory.c -o build/o2_pgo_xseed/unit_memory.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/unit_compute.c -o build/o2_pgo_xseed/unit_compute.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/dataset.c -o build/o2_pgo_xseed/dataset.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/util.c -o build/o2_pgo_xseed/util.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/parallel.c -o build/o2_pgo_xseed/parallel.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/pmu.c -o build/o2_pgo_xseed/pmu.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_xseed"' -c src/sensor_sensehat.c -o build/o2_pgo_xseed/sensor_sensehat.o
+gcc -O2 -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo_xseed/main.o build/o2_pgo_xseed/unit_io.o build/o2_pgo_xseed/unit_memory.o build/o2_pgo_xseed/unit_compute.o build/o2_pgo_xseed/dataset.o build/o2_pgo_xseed/util.o build/o2_pgo_xseed/parallel.o build/o2_pgo_xseed/pmu.o build/o2_pgo_xseed/sensor_sensehat.o -o build/critter_o2_pgo_xseed -lm
+== o2_pgo_lto: PGO step 1/3 - instrumented build
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/main.c -o build/o2_pgo_lto/main.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/unit_io.c -o build/o2_pgo_lto/unit_io.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/unit_memory.c -o build/o2_pgo_lto/unit_memory.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/unit_compute.c -o build/o2_pgo_lto/unit_compute.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/dataset.c -o build/o2_pgo_lto/dataset.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/util.c -o build/o2_pgo_lto/util.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/parallel.c -o build/o2_pgo_lto/parallel.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/pmu.c -o build/o2_pgo_lto/pmu.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/sensor_sensehat.c -o build/o2_pgo_lto/sensor_sensehat.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo_lto/main.o build/o2_pgo_lto/unit_io.o build/o2_pgo_lto/unit_memory.o build/o2_pgo_lto/unit_compute.o build/o2_pgo_lto/dataset.o build/o2_pgo_lto/util.o build/o2_pgo_lto/parallel.o build/o2_pgo_lto/pmu.o build/o2_pgo_lto/sensor_sensehat.o -o build/critter_o2_pgo_lto -lm
+== o2_pgo_lto: PGO step 2/3 - training run (dataset seed 0)
+TRAINTIME,o2_pgo_lto,2.162
+== o2_pgo_lto: PGO step 3/3 - optimized rebuild using the profile
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/main.c -o build/o2_pgo_lto/main.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/unit_io.c -o build/o2_pgo_lto/unit_io.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/unit_memory.c -o build/o2_pgo_lto/unit_memory.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/unit_compute.c -o build/o2_pgo_lto/unit_compute.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/dataset.c -o build/o2_pgo_lto/dataset.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/util.c -o build/o2_pgo_lto/util.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/parallel.c -o build/o2_pgo_lto/parallel.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/pmu.c -o build/o2_pgo_lto/pmu.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto"' -c src/sensor_sensehat.c -o build/o2_pgo_lto/sensor_sensehat.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo_lto/main.o build/o2_pgo_lto/unit_io.o build/o2_pgo_lto/unit_memory.o build/o2_pgo_lto/unit_compute.o build/o2_pgo_lto/dataset.o build/o2_pgo_lto/util.o build/o2_pgo_lto/parallel.o build/o2_pgo_lto/pmu.o build/o2_pgo_lto/sensor_sensehat.o -o build/critter_o2_pgo_lto -lm
+== o2_pgo_lto_xseed: PGO step 1/3 - instrumented build
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/main.c -o build/o2_pgo_lto_xseed/main.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/unit_io.c -o build/o2_pgo_lto_xseed/unit_io.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/unit_memory.c -o build/o2_pgo_lto_xseed/unit_memory.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/unit_compute.c -o build/o2_pgo_lto_xseed/unit_compute.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/dataset.c -o build/o2_pgo_lto_xseed/dataset.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/util.c -o build/o2_pgo_lto_xseed/util.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/parallel.c -o build/o2_pgo_lto_xseed/parallel.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/pmu.c -o build/o2_pgo_lto_xseed/pmu.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/sensor_sensehat.c -o build/o2_pgo_lto_xseed/sensor_sensehat.o
+gcc -O2 -flto=auto -fprofile-generate -fprofile-update=single -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo_lto_xseed/main.o build/o2_pgo_lto_xseed/unit_io.o build/o2_pgo_lto_xseed/unit_memory.o build/o2_pgo_lto_xseed/unit_compute.o build/o2_pgo_lto_xseed/dataset.o build/o2_pgo_lto_xseed/util.o build/o2_pgo_lto_xseed/parallel.o build/o2_pgo_lto_xseed/pmu.o build/o2_pgo_lto_xseed/sensor_sensehat.o -o build/critter_o2_pgo_lto_xseed -lm
+== o2_pgo_lto_xseed: PGO step 2/3 - training run (dataset seed 7)
+TRAINTIME,o2_pgo_lto_xseed,2.161
+== o2_pgo_lto_xseed: PGO step 3/3 - optimized rebuild using the profile
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/main.c -o build/o2_pgo_lto_xseed/main.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/unit_io.c -o build/o2_pgo_lto_xseed/unit_io.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/unit_memory.c -o build/o2_pgo_lto_xseed/unit_memory.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/unit_compute.c -o build/o2_pgo_lto_xseed/unit_compute.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/dataset.c -o build/o2_pgo_lto_xseed/dataset.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/util.c -o build/o2_pgo_lto_xseed/util.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/parallel.c -o build/o2_pgo_lto_xseed/parallel.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/pmu.c -o build/o2_pgo_lto_xseed/pmu.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   -DVARIANT='"o2_pgo_lto_xseed"' -c src/sensor_sensehat.c -o build/o2_pgo_lto_xseed/sensor_sensehat.o
+gcc -O2 -flto=auto -fprofile-use -fprofile-correction -std=gnu11 -Wall -Wextra -pthread   build/o2_pgo_lto_xseed/main.o build/o2_pgo_lto_xseed/unit_io.o build/o2_pgo_lto_xseed/unit_memory.o build/o2_pgo_lto_xseed/unit_compute.o build/o2_pgo_lto_xseed/dataset.o build/o2_pgo_lto_xseed/util.o build/o2_pgo_lto_xseed/parallel.o build/o2_pgo_lto_xseed/pmu.o build/o2_pgo_lto_xseed/sensor_sensehat.o -o build/critter_o2_pgo_lto_xseed -lm
+Before: temp=64.2'C
+round 1/5  o2          total    1719.2 ms
+round 1/5  o2_pgo      total    1442.0 ms
+round 1/5  o2_pgo_xseed total    1441.8 ms
+round 1/5  o2_pgo_lto  total    1395.7 ms
+round 1/5  o2_pgo_lto_xseed total    1401.0 ms
+round 2/5  o2          total    1702.4 ms
+round 2/5  o2_pgo      total    1439.7 ms
+round 2/5  o2_pgo_xseed total    1441.2 ms
+round 2/5  o2_pgo_lto  total    1397.5 ms
+round 2/5  o2_pgo_lto_xseed total    1401.3 ms
+round 3/5  o2          total    1703.9 ms
+round 3/5  o2_pgo      total    1437.8 ms
+round 3/5  o2_pgo_xseed total    1447.9 ms
+round 3/5  o2_pgo_lto  total    1399.7 ms
+round 3/5  o2_pgo_lto_xseed total    1395.8 ms
+round 4/5  o2          total    1704.8 ms
+round 4/5  o2_pgo      total    1439.1 ms
+round 4/5  o2_pgo_xseed total    1438.4 ms
+round 4/5  o2_pgo_lto  total    1397.2 ms
+round 4/5  o2_pgo_lto_xseed total    1397.7 ms
+round 5/5  o2          total    1707.5 ms
+round 5/5  o2_pgo      total    1440.8 ms
+round 5/5  o2_pgo_xseed total    1440.5 ms
+round 5/5  o2_pgo_lto  total    1398.4 ms
+round 5/5  o2_pgo_lto_xseed total    1396.9 ms
+After:  temp=59.8'C  throttled=0x0
+
+Wall-clock ms per unit: mean, std dev, speedup vs o0  (5 runs each)
+
+variant       I/O                          Memory                       Compute                      Total                      
+o2               1017.3 +-    0.3  1.00x        81.6 +-    6.6  1.00x       608.6 +-    0.4  1.00x      1707.6 +-    6.7  1.00x 
+o2_pgo           1017.5 +-    0.3  1.00x        76.1 +-    1.5  1.00x       346.3 +-    0.1  1.00x      1439.9 +-    1.6  1.00x 
+o2_pgo_xseed     1017.3 +-    0.2  1.00x        77.8 +-    3.5  1.00x       346.8 +-    1.1  1.00x      1442.0 +-    3.6  1.00x 
+o2_pgo_lto       1017.5 +-    0.3  1.00x        66.6 +-    1.3  1.00x       313.5 +-    0.2  1.00x      1397.7 +-    1.5  1.00x 
+o2_pgo_lto_xseed     1017.5 +-    0.1  1.00x        67.7 +-    2.4  1.00x       313.3 +-    0.1  1.00x      1398.5 +-    2.5  1.00x 
+
+Raw data: results/raw_20261121_002305.csv
+Summary:  results/summary_20261121_002305.csv

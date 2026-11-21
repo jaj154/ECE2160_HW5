@@ -1,0 +1,63 @@
+### o2_lto_link.txt
+      1 optimized:  Inlined bin_to_dev into clean_and_summarize
+      1 optimized:  Inlined bin_to_temp into clean_and_summarize
+      1 optimized:  Inlined dev_to_bin into clean_and_summarize
+      1 optimized:  Inlined rng_gauss into predict_room
+      1 optimized:  Inlined stats_add into clean_and_summarize
+      1 optimized:  Inlined stats_finish.isra into clean_and_summarize
+      1 optimized:  Inlined stats_reset into clean_and_summarize
+      1 optimized:  Inlined temp_to_bin into clean_and_summarize
+      1 src/unit_compute.c:101:23: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:115:30: optimized: loop vectorized using 16 byte vectors
+
+### o2_pgo_lto_link.txt
+      1 optimized:  Inlined bin_to_dev into clean_and_summarize
+      1 optimized:  Inlined bin_to_temp into clean_and_summarize
+      1 optimized:  Inlined dev_to_bin into clean_and_summarize
+      1 optimized:  Inlined rng_gauss into predict_room
+      1 optimized:  Inlined stats_add into clean_and_summarize
+      1 optimized:  Inlined stats_finish.isra into clean_and_summarize
+      1 optimized:  Inlined stats_reset into clean_and_summarize
+      1 optimized:  Inlined temp_to_bin into clean_and_summarize
+      1 src/unit_compute.c:115:30: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:117:27: optimized: loop with 15 iterations completely unrolled (header execution count 523776)
+      1 src/unit_compute.c:140:31: optimized: loop with 15 iterations completely unrolled (header execution count 8388608)
+      1 src/unit_compute.c:25:27: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:26:20: optimized: loop unrolled 7 times (header execution count 238281523)
+      1 src/unit_compute.c:91:27: optimized: loop with 3 iterations completely unrolled (header execution count 1048576)
+      1 src/unit_memory.c:20:31: optimized:  loop versioned for vectorization because of possible aliasing
+      1 src/unit_memory.c:20:31: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_memory.c:46:30: optimized: loop unrolled 3 times (header execution count 4194304)
+      1 src/unit_memory.c:52:30: optimized: loop unrolled 3 times (header execution count 4194304)
+      1 src/unit_memory.c:69:31: optimized: loop unrolled 3 times (header execution count 4194304)
+
+### o2_pgo_unit_compute.txt
+      1 src/unit_compute.c:101:23: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:102:14: optimized: loop unrolled 3 times (header execution count 262144)
+      1 src/unit_compute.c:115:30: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:117:27: optimized: loop with 15 iterations completely unrolled (header execution count 523776)
+      1 src/unit_compute.c:133:27: optimized: loop with 15 iterations completely unrolled (header execution count 4096)
+      1 src/unit_compute.c:134:20: optimized: basic block part vectorized using 16 byte vectors
+      1 src/unit_compute.c:140:31: optimized: loop with 15 iterations completely unrolled (header execution count 8388608)
+      1 src/unit_compute.c:25:27: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:26:20: optimized: loop unrolled 7 times (header execution count 238281523)
+      1 src/unit_compute.c:89:23: optimized: loop unrolled 3 times (header execution count 1048576)
+      1 src/unit_compute.c:91:27: optimized: loop with 3 iterations completely unrolled (header execution count 1048576)
+
+### o2_pgo_unit_memory.txt
+      1 src/unit_memory.c:20:31: optimized:  loop versioned for vectorization because of possible aliasing
+      1 src/unit_memory.c:20:31: optimized: loop unrolled 7 times (header execution count 838861)
+      1 src/unit_memory.c:20:31: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_memory.c:20:31: optimized: loop with 2 iterations completely unrolled (header execution count 17207)
+      1 src/unit_memory.c:21:56: optimized: loop unrolled 3 times (header execution count 838861)
+      1 src/unit_memory.c:29:23: optimized: loop unrolled 9 times (header execution count 108347)
+      1 src/unit_memory.c:46:30: optimized: loop unrolled 7 times (header execution count 4194304)
+      1 src/unit_memory.c:52:30: optimized: loop unrolled 4 times (header execution count 4194304)
+      1 src/unit_memory.c:69:31: optimized: loop unrolled 3 times (header execution count 4194304)
+
+### o2_unit_compute.txt
+      1 src/unit_compute.c:101:23: optimized: loop vectorized using 16 byte vectors
+      1 src/unit_compute.c:115:30: optimized: loop vectorized using 16 byte vectors
+
+### o2_unit_memory.txt
+

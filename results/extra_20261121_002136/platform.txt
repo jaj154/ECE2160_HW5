@@ -1,0 +1,12 @@
+model:     Raspberry Pi 5 Model B Rev 1.1
+cpu:       Cortex-A76
+cores:     4
+ram:       7.9Gi
+os:        Debian GNU/Linux 13 (trixie)
+kernel:    6.18.50+rpt-rpi-2712 (aarch64)
+userland:  64-bit
+gcc:       gcc (Debian 14.2.0-19) 14.2.0
+governor:  performance
+max_freq:  2400000 kHz
+i2c1_clock: unknown
+perf_event_paranoid: 2

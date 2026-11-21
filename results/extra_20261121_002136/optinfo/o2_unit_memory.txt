@@ -1,0 +1,2 @@
+src/unit_memory.c:54:27: optimized:  Inlining quantile_bin/1 into clean_and_summarize/2.
+src/unit_memory.c:48:30: optimized:  Inlining quantile_bin/1 into clean_and_summarize/2.

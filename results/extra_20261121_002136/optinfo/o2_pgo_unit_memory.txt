@@ -1,0 +1,12 @@
+src/unit_memory.c:54:27: optimized:  Inlining quantile_bin/1 into clean_and_summarize/2.
+src/unit_memory.c:48:30: optimized:  Inlining quantile_bin/1 into clean_and_summarize/2.
+src/unit_memory.c:18:26: optimized: Guard hoisted
+src/unit_memory.c:20:31: optimized: loop vectorized using 16 byte vectors
+src/unit_memory.c:20:31: optimized:  loop versioned for vectorization because of possible aliasing
+src/unit_memory.c:20:31: optimized: loop with 2 iterations completely unrolled (header execution count 17207)
+src/unit_memory.c:20:31: optimized: loop unrolled 7 times (header execution count 838861)
+src/unit_memory.c:21:56: optimized: loop unrolled 3 times (header execution count 838861)
+src/unit_memory.c:69:31: optimized: loop unrolled 3 times (header execution count 4194304)
+src/unit_memory.c:52:30: optimized: loop unrolled 4 times (header execution count 4194304)
+src/unit_memory.c:29:23: optimized: loop unrolled 9 times (header execution count 108347)
+src/unit_memory.c:46:30: optimized: loop unrolled 7 times (header execution count 4194304)

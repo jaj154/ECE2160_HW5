@@ -1,0 +1,8 @@
+src/unit_compute.c:108:5: optimized:  Inlined find_cycle/23 into predict_room/25 which now has time 1801253.626953 and size 203, net change of -12.
+src/unit_compute.c:106:5: optimized:  Inlined autocorrelation.constprop/37 into predict_room/25 which now has time 1802187.552734 and size 224, net change of -7.
+src/unit_compute.c:113:5: optimized:  Inlined levinson/24 into predict_room/25 which now has time 1804804.425781 and size 279, net change of -6.
+src/unit_compute.c:143:42: optimized: Loop 8 distributed: split to 0 loops and 1 library calls.
+src/unit_compute.c:73:27: optimized: Loop 12 distributed: split to 0 loops and 1 library calls.
+src/unit_compute.c:63:23: optimized: Loop 15 distributed: split to 0 loops and 1 library calls.
+src/unit_compute.c:115:30: optimized: loop vectorized using 16 byte vectors
+src/unit_compute.c:101:23: optimized: loop vectorized using 16 byte vectors
