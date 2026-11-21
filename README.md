@@ -88,3 +88,12 @@ make clean && make EXTRA="-DSAMPLES_PER_ROOM=131072 -DIO_SAMPLES=4000"
 The `-O0` compute unit is the slowest part of a run. If the full study takes
 too long on your Pi model, lower `SAMPLES_PER_ROOM` (e.g. 32768); if timings
 are too short to separate from noise, raise it.
+
+## Extra measurements (paper feedback)
+
+`bash collect_extra.sh` records platform details, clean-build time and binary
+size per variant, GCC optimization reports (`-fopt-info-vec-loop-inline-optimized`)
+for -O2, PGO and LTO, hardware performance counters per unit (`-p` option,
+via `perf_event_open`), and a timing session comparing PGO trained on the
+measured dataset with PGO trained on a different one (`o2_pgo_xseed`,
+`o2_pgo_lto_xseed`, trained with `-s 7`). Output: `results/extra_<time>/`.

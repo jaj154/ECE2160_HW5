@@ -112,6 +112,7 @@ typedef struct {
 } room_prediction_t;
 
 typedef struct {
+    uint32_t seed;                /* dataset seed (-s option); 0 = default     */
     float  *trace;                /* IO_SAMPLES real readings (I/O unit)       */
     size_t  trace_len;
     float  *raw;                  /* collection order: raw[t*NUM_ROOMS + room] */

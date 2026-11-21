@@ -11,6 +11,7 @@
  *
  * Readings are stored in collection order (all rooms for time t, then t+1),
  * the way they would arrive from the field. This step is not timed.
+ * The -s option selects a different random deployment.
  */
 #include <math.h>
 #include "critter.h"
@@ -26,7 +27,9 @@ void dataset_build(critter_data_t *d)
     mean /= (double)n;
 
     for (int r = 0; r < NUM_ROOMS; r++) {
-        uint32_t rng = 0x9E3779B9u ^ ((uint32_t)r * 0x85EBCA6Bu);
+        /* Seed 0 reproduces the original dataset; other seeds give a
+         * different deployment (used to train PGO on separate data). */
+        uint32_t rng = 0x9E3779B9u ^ ((uint32_t)r * 0x85EBCA6Bu) ^ (d->seed * 0xC2B2AE35u);
         if (rng == 0)
             rng = 1;
 

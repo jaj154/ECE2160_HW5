@@ -7,9 +7,11 @@
  *   2. Memory unit   - reorganizes, removes outliers and summarizes
  *   3. Compute unit  - detects HVAC cycles, fits a model, forecasts alarms
  *
- * Usage: critter_<variant> [-q] [-v]
- *   -q  print only the machine-readable RESULT line (scripts, PGO training)
- *   -v  also print the per-room HVAC report
+ * Usage: critter_<variant> [-q] [-v] [-p] [-s seed]
+ *   -q       print only the machine-readable RESULT/PMU lines (scripts, PGO training)
+ *   -v       also print the per-room HVAC report
+ *   -p       also count hardware events per unit (cycles, instructions, ...)
+ *   -s seed  generate a different random deployment (default 0)
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,6 +19,7 @@
 #include <time.h>
 #include "critter.h"
 #include "sensor.h"
+#include "pmu.h"
 
 typedef struct {
     double wall0, cpu0;
@@ -78,19 +81,30 @@ static void print_room_report(const critter_data_t *d)
 
 int main(int argc, char **argv)
 {
-    int quiet = 0, verbose = 0;
+    int quiet = 0, verbose = 0, counters = 0;
+    uint32_t seed = 0;
     for (int i = 1; i < argc; i++) {
         if (!strcmp(argv[i], "-q"))
             quiet = 1;
         else if (!strcmp(argv[i], "-v"))
             verbose = 1;
+        else if (!strcmp(argv[i], "-p"))
+            counters = 1;
+        else if (!strcmp(argv[i], "-s") && i + 1 < argc)
+            seed = (uint32_t)strtoul(argv[++i], NULL, 0);
         else {
-            fprintf(stderr, "usage: %s [-q] [-v]\n", argv[0]);
+            fprintf(stderr, "usage: %s [-q] [-v] [-p] [-s seed]\n", argv[0]);
             return 2;
         }
     }
 
+    if (counters && pmu_open() != 0) {
+        fprintf(stderr, "hardware counters unavailable (%s)\n", pmu_error());
+        counters = 0;
+    }
+
     critter_data_t d = {0};
+    d.seed    = seed;
     d.trace   = xalloc(IO_SAMPLES * sizeof *d.trace);
     d.raw     = xalloc((size_t)NUM_ROOMS * SAMPLES_PER_ROOM * sizeof *d.raw);
     d.clean   = xalloc((size_t)NUM_ROOMS * SAMPLES_PER_ROOM * sizeof *d.clean);
@@ -104,23 +118,31 @@ int main(int argc, char **argv)
 
     stopwatch_t t_io, t_mem, t_cmp;
     io_report_t io;
+    pmu_sample_t c_io = {0}, c_mem = {0}, c_cmp = {0};
 
+    if (counters) pmu_start();
     sw_start(&t_io);
     int rc = io_unit_run(&d, &io);
     sw_stop(&t_io);
+    if (counters) pmu_stop(&c_io);
     sensor_close();
     if (rc != 0)
         return 1;
 
     dataset_build(&d);                 /* expand to all rooms (not timed) */
 
+    if (counters) pmu_start();
     sw_start(&t_mem);
     memory_unit_run(&d);
     sw_stop(&t_mem);
+    if (counters) pmu_stop(&c_mem);
 
+    if (counters) pmu_start();
     sw_start(&t_cmp);
     compute_unit_run(&d);
     sw_stop(&t_cmp);
+    if (counters) pmu_stop(&c_cmp);
+    if (counters) pmu_close();
 
     /* Checksums: keep the compiler from discarding work, and let you confirm
      * that every build variant computes (nearly) the same answer. Low-order
@@ -139,7 +161,8 @@ int main(int argc, char **argv)
     const double total = t_io.wall_ms + t_mem.wall_ms + t_cmp.wall_ms;
 
     if (!quiet) {
-        printf("Critter optimization study   build=%s   threads=%d\n", VARIANT, worker_count());
+        printf("Critter optimization study   build=%s   threads=%d   seed=%u\n",
+               VARIANT, worker_count(), seed);
         printf("sensor: %s\n", sensor_name());
         printf("workload: %d sensor reads; %d rooms x %d readings\n\n",
                IO_SAMPLES, NUM_ROOMS, SAMPLES_PER_ROOM);
@@ -159,6 +182,21 @@ int main(int argc, char **argv)
     printf("RESULT,%s,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f,%.3f\n", VARIANT,
            t_io.wall_ms, t_io.cpu_ms, t_mem.wall_ms, t_mem.cpu_ms,
            t_cmp.wall_ms, t_cmp.cpu_ms, total);
+    if (counters) {
+        /* PMU,variant,unit,cycles,instructions,branch_misses,cache_refs,cache_misses,scaled */
+        const char *names[3] = { "io", "memory", "compute" };
+        const pmu_sample_t *c[3] = { &c_io, &c_mem, &c_cmp };
+        for (int u = 0; u < 3; u++) {
+            printf("PMU,%s,%s", VARIANT, names[u]);
+            for (int e = 0; e < PMU_NEVENTS; e++) {
+                if (c[u]->valid)
+                    printf(",%llu", (unsigned long long)c[u]->value[e]);
+                else
+                    printf(",NA");
+            }
+            printf(",%d\n", c[u]->scaled);
+        }
+    }
 
     free(d.trace);
     free(d.raw);
